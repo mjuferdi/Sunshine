@@ -109,11 +109,8 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
             }
             
             weatherDatamodel.city = json["name"].stringValue
-            
             weatherDatamodel.condition = json["weather"][0]["id"].intValue
-            
-            weatherDatamodel.weatherIconName = weatherDatamodel.updateWeatherIcon(condition: weatherDatamodel.condition)
-        
+            weatherDatamodel.weatherIconName = weatherDatamodel.updateWeatherIcon(condition: weatherDatamodel.condition)       
             updateUIWithWeatherData()
         }
         else {
@@ -131,7 +128,6 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
     
     //Write the updateUIWithWeatherData method here:
     func updateUIWithWeatherData() {
-        
         cityLabel.text = weatherDatamodel.city
         temperatureLabel.text = "\(weatherDatamodel.temperatur)°"
         weatherIcon.image = UIImage(named: weatherDatamodel.weatherIconName)
@@ -155,8 +151,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
             print("longitude = \(location.coordinate.longitude), latitude: \(location.coordinate.latitude)")
             
             let latitude = String(location.coordinate.latitude)
-            let longitude = String(location.coordinate.longitude)
-            
+            let longitude = String(location.coordinate.longitude)     
             let params : [String : String] = ["lat" : latitude, "lon" : longitude, "appid" : APP_ID]
             
             getWeatherData(url: WEATHER_URL, parameters: params)
@@ -178,8 +173,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
     
     
     //Write the userEnteredANewCityName Delegate method here:
-    func unserEnteredANewCityName(city: String) {
-        
+    func unserEnteredANewCityName(city: String) {     
         let params : [String : String] = ["q" : city, "appid" : APP_ID]
         getWeatherData(url: WEATHER_URL, parameters: params)
         
@@ -188,17 +182,11 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
     
     //Write the PrepareForSegue Method here
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "changeCityName" {
-            
+        if segue.identifier == "changeCityName" {   
             let  destinationVC = segue.destination as! ChangeCityViewController
-            
             destinationVC.delegate = self
         }
     }
-    
-    
-    
-    
 }
 
 
