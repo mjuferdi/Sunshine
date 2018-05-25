@@ -1,44 +1,20 @@
-# Clima
-Learn to make iOS Apps with [The App Brewery](https://www.appbrewery.co) 📱 | Project Stub | (Swift 4.0/Xcode 9) - Clima App
+# Sunshine (Clima)
+Simple weather forecast app to get current weather from local or another city and country. API responds with a list of results that match a searching word.
 
-Beginner: Download the starter project files as .zip and extract the files to your desktop.
+## Built With
 
-Pro: Git clone to your Xcode projects folder.
-
-## Finished App
-![Finished App](https://github.com/londonappbrewery/Images/blob/master/Clima.gif)
-
-## Fix for Cocoapods v1.0.1 and below
-
-```ruby
-post_install do |installer|
-  installer.pods_project.targets.each do |target|
-    target.build_configurations.each do |config|
-      config.build_settings['SWIFT_VERSION'] = '3.0'
-      config.build_settings['MACOSX_DEPLOYMENT_TARGET'] = '10.10'
-    end
-  end
-end
-```
-
-## Fix for App Transport Security Override
-
-```XML
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSExceptionDomains</key>
-		<dict>
-			<key>openweathermap.org</key>
-			<dict>
-				<key>NSIncludesSubdomains</key>
-				<true/>
-				<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
-				<true/>
-			</dict>
-		</dict>
-	</dict>
-```
+*  Swift 4.0
+*  Xcode 9.0
+*  Open weather API - https://openweathermap.org/api
+*  Alamofire 4.7
+*  SwiftyJSON 4.1
+*  SVProgressHUD 2.2
 
 
-Copyright © The App Brewery
 
+## Authors
+
+* **Mario MJ** - [mjuferdi](https://github.com/mjuferdi)
+* **The App Brewery**
+
+Image Copyright © The App Brewery all reserved
